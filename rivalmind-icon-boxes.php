@@ -7,7 +7,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: RivalMind Icon Boxes
- * Plugin URI:  https://rivalmind.com
+ * Plugin URI:  https://github.com/RivalMind/icon-boxes
  * Description: Extends the text widget to add support for FontAwesome Icons and button links.
  * Version:     0.1.0
  * Author:      RivalMind
