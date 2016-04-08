@@ -11,12 +11,10 @@ jQuery(document).ready(function ($) {
                 width: "200px",
             });
             $(this).find('.rm-color-picker').wpColorPicker();
-            //$(this).addClass('initialized');
         });
     }
-
+    $('.rm-button-color-picker').wpColorPicker();
     initialize_plugins();
-    //$('.rm-button-color-picker').wpColorPicker();
 
     $(document).on('chosen:showing_dropdown', '.chosen-select', function () {
         $('.rm_chosen_select .chosen-results li').each(function () {
@@ -40,7 +38,6 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var widgetForm = $(this).parent().parent();
         var boxes = widgetForm.find('.rm-icon-boxes');
-        //var id_base = widgetForm.find('.id_base').val();
         var number = widgetForm.find('.widget_number').val();
         var boxForm = widgetForm.find('.rm-icon-box-form');
         var instance = boxForm.length;
