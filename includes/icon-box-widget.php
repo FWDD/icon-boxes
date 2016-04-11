@@ -134,7 +134,7 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 				echo $iconOutput;
 			}
 
-			echo '<h4>' . esc_html($heading) . '</h4>';
+			echo '<h4 class="accented">' . esc_html($heading) . '</h4>';
 
 			if ( $position == 'bottom' ) {
 				echo $iconOutput;
