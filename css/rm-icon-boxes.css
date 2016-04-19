@@ -28,6 +28,7 @@
 .rivalmind-icon-box{
     position: relative;
     padding: 0 0.9375rem;
+    margin: 30px 0;
     width: 100%;
 }
 .rivalmind-icon-button .rivalmind-cta-button{
@@ -50,7 +51,7 @@
     }
     .rivalmind-icon-box{
         display: table-cell;
-        padding-bottom: 60px;
+        padding-bottom: 77px;
     }
     .rivalmind-icon-button{
         width: 100%;
