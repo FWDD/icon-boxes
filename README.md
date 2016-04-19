@@ -25,6 +25,10 @@ When you're done adding boxes, click on **Save**.
 
 * WordPress 4.0 or higher
 
+## History
+
+Originally developed for use in [a responsive WordPress theme for accountants](http://ledgertheme.com) as a way to showcase services in a widget area on the home page.
+
 ## Credits
 
 FontAwesome by [FontAwesome](http://fontawesome.io/).
