@@ -3,7 +3,7 @@
  * Returns the list of icons sorted in alphabetical order.
  * @return array
  */
-function RivalMind_Get_Icon_List() {
+function fwdd_Get_Icon_List() {
 	global $fontAwesomeIconList;
 	sort($fontAwesomeIconList);
 	return $fontAwesomeIconList;

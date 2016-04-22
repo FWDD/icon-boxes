@@ -11,7 +11,7 @@ After the plugin uploads, click on **Activate**.
 
 ## Usage
 
-To create Icon boxes, navigate to **Appearance > Widgets** and drag the RivalMind Icon Boxes widget to the desired widget location.
+To create Icon boxes, navigate to **Appearance > Widgets** and drag the FWDD Icon Boxes widget to the desired widget location.
 Enter the title that will appear at the top and select the number of columns.
 Choose a button color for the Call to action buttons.
 Enter a heading for the first box, select an icon to use and choose a size. Choose the icon color and location.

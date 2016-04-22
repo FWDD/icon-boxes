@@ -1,16 +1,10 @@
 <?php
 
 /**
- * Class RivalMind_Icon_Boxes
+ * Class FWDD_Icon_Boxes
  * @see WP_Widget
  */
-class RivalMind_Icon_Boxes extends WP_Widget {
-	/**
-	 * The text domain for i18n translations
-	 *
-	 * @var string
-	 */
-	public $textDomain;
+class FWDD_Icon_Boxes extends WP_Widget {
 
 	/**
 	 * Array of icon sizes
@@ -39,7 +33,6 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 	 * @access public
 	 */
 	function __construct() {
-		$this->textDomain = 'rivalmind-icon-boxes';
 
 		$this->sizes = array( '1', '2', '3', '4', '5', '6', '7', '8' );
 
@@ -48,15 +41,15 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 		$this->columns = array( '1', '2', '3', '4' );
 
 		$widget_options = array(
-			'classname'   => 'rivalmind-icon-boxes',
-			'description' => __( 'Displays text widget with Icons.', $this->textDomain ),
+			'classname'   => 'fwdd-icon-boxes',
+			'description' => __( 'Displays text widget with Icons.', 'fwdd-icon-boxes' ),
 		);
 
 		$control_options = array(
-			'id_base' => 'rivalmind-icon-boxes',
+			'id_base' => 'fwdd-icon-boxes',
 			'width'   => 400,
 		);
-		parent::__construct( 'rivalmind-icon-boxes', __( 'RivalMind Icon Boxes', $this->textDomain ), $widget_options, $control_options );
+		parent::__construct( 'fwdd-icon-boxes', __( 'FWDD Icon Boxes', 'fwdd-icon-boxes' ), $widget_options, $control_options );
 
 		/**
 		 * Load font-awesome.css
@@ -83,7 +76,7 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 		 * Start the widget output
 		 */
 		echo $args['before_widget'];
-		echo '<div class="rivalmind-icon-boxes">';
+		echo '<div class="fwdd-icon-boxes">';
 
 		/**
 		 * Output the widget title
@@ -91,7 +84,7 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 		if ( ! empty( $title ) ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
-		echo '<div class="rivalmind-icon-box-row">';
+		echo '<div class="fwdd-icon-box-row">';
 		/**
 		 * Loop through the boxes and output box content
 		 */
@@ -105,7 +98,7 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 			$button_text = ! empty( $box['button_text'] ) ? $box['button_text'] : '';
 			$button_link = ! empty( $box['button_link'] ) ? $box['button_link'] : '';
 			$iconStyles  = 'style="' . $icon_color . $size . '"';
-			$class       = ' rivalmind-icon';
+			$class       = ' fwdd-icon';
 			
 			/**
 			 * Filter the content of the text widget
@@ -117,10 +110,10 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 			$text = apply_filters( 'widget_text', $widget_text, $instance, $this );
 			
 			if ( $position == 'right' ) {
-				$class .= ' rivalmind-icon-right';
+				$class .= ' fwdd-icon-right';
 			}
 			if ( $position == 'left' ) {
-				$class .= ' rivalmind-icon-left';
+				$class .= ' fwdd-icon-left';
 			}
 
 			$iconOutput = '';
@@ -128,7 +121,7 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 				$iconOutput = '<i class="fa fa-' . $icon . $class . '" ' . $iconStyles . '></i>';
 			}
 
-			echo '<div class="rivalmind-icon-box rivalmind-' . $columns . '">';
+			echo '<div class="fwdd-icon-box fwdd-' . $columns . '">';
 
 			if ( $position == 'top' ) {
 				echo $iconOutput;
@@ -145,12 +138,12 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 			echo( ! empty( $box['filter'] ) ? wpautop( $text ) : $text );
 
 			if ( ! empty( $box['button_text'] ) ) {
-				echo '<div class="rivalmind-icon-button"><a class="rivalmind-cta-button" href="' . esc_url($button_link) . '" style="background:' . $button_color . ';">' . esc_html($button_text) . '</a></div>';
+				echo '<div class="fwdd-icon-button"><a class="fwdd-cta-button" href="' . esc_url($button_link) . '" style="background:' . $button_color . ';">' . esc_html($button_text) . '</a></div>';
 			}
-			echo '</div><!-- end rivalmind-icon-box-->';
+			echo '</div><!-- end fwdd-icon-box-->';
 		} // End foreach
-		echo '</div><!-- end rivalmind-icon-box-row-->';
-		echo '</div><!-- end rivalmind-icon-boxes-->';
+		echo '</div><!-- end fwdd-icon-box-row-->';
+		echo '</div><!-- end fwdd-icon-boxes-->';
 		echo $args['after_widget'];
 	}
 
@@ -245,7 +238,7 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', $this->textDomain ); ?>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'fwdd-icon-boxes' ); ?>
 				:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
 			       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
@@ -253,10 +246,10 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 		</p>
 		<p>
 			<label
-				for="<?php echo $this->get_field_id( 'columns' ); ?>"><?php _e( 'Number of columns', $this->textDomain ); ?>
+				for="<?php echo $this->get_field_id( 'columns' ); ?>"><?php _e( 'Number of columns', 'fwdd-icon-boxes' ); ?>
 				:</label>
 			<select name="<?php echo $this->get_field_name( 'columns' ); ?>"
-			        class="rm-input-field">
+			        class="fwdd-input-field">
 				<?php
 				foreach ( (array) $this->columns as $columns ) {
 					printf( '<option value="%s" %s>%s</option>', $columns, selected( $columns, $instance['columns'], 0 ), $columns );
@@ -265,14 +258,14 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label><?php _e( 'Button color', $this->textDomain ); ?>
-				<input class="rm-button-color-picker"
+			<label><?php _e( 'Button color', 'fwdd-icon-boxes' ); ?>
+				<input class="fwdd-button-color-picker"
 				       name="<?php echo $this->get_field_name( 'button_color' ); ?>"
 				       type="text"
 				       value="<?php echo $button_color; ?>" data-default-color="#FF9800"/>
 			</label>
 		</p>
-		<div class="rm-icon-boxes">
+		<div class="fwdd-icon-boxes">
 			<?php
 			for ( $i = 0; $i < $boxCount; $i ++ ) {
 				$heading     = $boxes[ $i ]['heading'];
@@ -282,21 +275,21 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 				$text        = $boxes[ $i ]['text'];
 				$filter      = isset( $boxes[ $i ]['filter'] ) ? $boxes[ $i ]['filter'] : 0;
 				?>
-				<div class="rm-icon-box-form">
+				<div class="fwdd-icon-box-form">
 					<h3><?php printf( __( 'Box #%s', 'ledger' ), $i + 1 ); ?></h3>
 					<p>
-						<label><?php _e( 'Heading', $this->textDomain ); ?>
-							<input type="text" class="widefat rm-input-field"
+						<label><?php _e( 'Heading', 'fwdd-icon-boxes' ); ?>
+							<input type="text" class="widefat fwdd-input-field"
 							       name="<?php echo $this->get_field_name( 'boxes[' . $i . '][heading]' ); ?>"
 							       value="<?php echo $heading; ?>"/>
 						</label>
 					</p>
-					<p class="rm_chosen_select">
-						<label><?php _e( 'Icon', $this->textDomain ); ?>
+					<p class="fwdd_chosen_select">
+						<label><?php _e( 'Icon', 'fwdd-icon-boxes' ); ?>
 							<select name="<?php echo $this->get_field_name( 'boxes[' . $i . '][icon]' ); ?>"
-							        class="chosen-select rm-input-field" data-placeholder="Choose an Icon">
+							        class="chosen-select fwdd-input-field" data-placeholder="Choose an Icon">
 								<?php
-								foreach ( RivalMind_Get_Icon_List() as $ico ) {
+								foreach ( fwdd_Get_Icon_List() as $ico ) {
 									printf( '<option value="%s" %s>%s</option>', $ico, selected( $ico, $boxes[ $i ]['icon'], 0 ), $ico );
 								}
 								?>
@@ -304,9 +297,9 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 						</label>
 					</p>
 					<p>
-						<label><?php _e( 'Icon size', $this->textDomain ); ?>
+						<label><?php _e( 'Icon size', 'fwdd-icon-boxes' ); ?>
 							<select name="<?php echo $this->get_field_name( 'boxes[' . $i . '][size]' ); ?>"
-							        class="rm-input-field">
+							        class="fwdd-input-field">
 								<?php
 								foreach ( (array) $this->sizes as $size ) {
 									printf( '<option value="%d" %s>%d rem</option>', (int) $size, selected( $size, $boxes[ $i ]['size'], 0 ), (int) $size );
@@ -316,17 +309,17 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 						</label>
 					</p>
 					<p>
-						<label><?php _e( 'Icon color', $this->textDomain ); ?>
-							<input class="rm-color-picker rm-input-field"
+						<label><?php _e( 'Icon color', 'fwdd-icon-boxes' ); ?>
+							<input class="fwdd-color-picker fwdd-input-field"
 							       name="<?php echo $this->get_field_name( 'boxes[' . $i . '][icon_color]' ); ?>"
 							       type="text"
 							       value="<?php echo $icon_color; ?>"/>
 						</label>
 					</p>
 					<p>
-						<label><?php _e( 'Icon position', $this->textDomain ); ?>
+						<label><?php _e( 'Icon position', 'fwdd-icon-boxes' ); ?>
 							<select name="<?php echo $this->get_field_name( 'boxes[' . $i . '][position]' ); ?>"
-							        class="rm-input-field">
+							        class="fwdd-input-field">
 								<?php
 								foreach ( (array) $this->positions as $position ) {
 									printf( '<option value="%s" %s>%s</option>', $position, selected( $position, $boxes[ $i ]['position'], 0 ), $position );
@@ -336,33 +329,33 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 						</label>
 					</p>
 					<p>
-						<label><?php _e( 'Text', $this->textDomain ); ?>
-							<textarea class="widefat rm-input-field" rows="8" cols="20"
+						<label><?php _e( 'Text', 'fwdd-icon-boxes' ); ?>
+							<textarea class="widefat fwdd-input-field" rows="8" cols="20"
 							          name="<?php echo $this->get_field_name( 'boxes[' . $i . '][text]' ); ?>"><?php echo esc_textarea( $text ); ?></textarea>
 						</label>
 					</p>
 					<p>
 						<label>
 							<input name="<?php echo $this->get_field_name( 'boxes[' . $i . '][filter]' ); ?>"
-							       class=" rm-input-field"
-							       type="checkbox"<?php checked( $filter ); ?> />&nbsp;<?php _e( 'Automatically add paragraphs', $this->textDomain ); ?>
+							       class=" fwdd-input-field"
+							       type="checkbox"<?php checked( $filter ); ?> />&nbsp;<?php _e( 'Automatically add paragraphs', 'fwdd-icon-boxes' ); ?>
 						</label>
 					</p>
 					<p>
-						<label><?php _e( 'Button Text', $this->textDomain ); ?>
-							<input type="text" class="widefat rm-input-field"
+						<label><?php _e( 'Button Text', 'fwdd-icon-boxes' ); ?>
+							<input type="text" class="widefat fwdd-input-field"
 							       name="<?php echo $this->get_field_name( 'boxes[' . $i . '][button_text]' ); ?>"
 							       value="<?php echo $button_text; ?>"/>
 						</label>
 					</p>
 					<p>
-						<label><?php _e( 'Button Link', $this->textDomain ); ?>
-							<input type="text" class="widefat rm-input-field"
+						<label><?php _e( 'Button Link', 'fwdd-icon-boxes' ); ?>
+							<input type="text" class="widefat fwdd-input-field"
 							       name="<?php echo $this->get_field_name( 'boxes[' . $i . '][button_link]' ); ?>"
 							       value="<?php echo $button_link; ?>"/>
 						</label>
 					</p>
-					<a class="rm-remove-icon-box" href="#">Remove</a>
+					<a class="fwdd-remove-icon-box" href="#">Remove</a>
 				</div>
 
 				<?php
@@ -370,7 +363,7 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 			?>
 		</div>
 
-		<a class="rm-add-icon-box" href="#" style="display:block;text-align: center;margin:10px 0;">Add Box</a>
+		<a class="fwdd-add-icon-box" href="#" style="display:block;text-align: center;margin:10px 0;">Add Box</a>
 
 		<?php
 
@@ -387,8 +380,8 @@ class RivalMind_Icon_Boxes extends WP_Widget {
 
 		if ( ! is_admin() && is_active_widget( false, false, $this->id_base, true ) ) {
 			wp_enqueue_style( 'fontawesome' );
-			wp_register_style( "rm-icons", plugins_url( 'css/rm-icon-boxes.css', dirname( __FILE__ ) ) );
-			wp_enqueue_style( 'rm-icons' );
+			wp_register_style( "fwdd-icons", plugins_url( 'css/fwdd-icon-boxes.css', dirname( __FILE__ ) ) );
+			wp_enqueue_style( 'fwdd-icons' );
 		}
 	}
 
