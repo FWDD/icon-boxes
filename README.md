@@ -25,6 +25,10 @@ When you're done adding boxes, click on **Save**.
 
 * WordPress 4.0 or higher
 
+## License
+
+[GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.txt)
+
 ## History
 
 Originally developed for use in [a responsive WordPress theme for accountants](http://ledgertheme.com) as a way to showcase services in a widget area on the home page.
@@ -32,3 +36,4 @@ Originally developed for use in [a responsive WordPress theme for accountants](h
 ## Credits
 
 FontAwesome by [FontAwesome](http://fontawesome.io/).
+
