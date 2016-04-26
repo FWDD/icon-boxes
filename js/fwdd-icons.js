@@ -1,19 +1,20 @@
 jQuery(document).ready(function ($) {
     //Get the form template before adding js generated elements.
     //Use .first to ensure we only get the first element
-    var formTemplate = $('.fwdd-icon-boxes .fwdd-icon-box-form').first().clone(true);
-    formTemplate.addClass('.cloned');
+    var formTemplate = $('#widget-list .fwdd-icon-box-form').first().clone(true);
+    //formTemplate.addClass('.cloned');
 
     function initialize_plugins(){
-        $('.fwdd-icon-boxes .fwdd-icon-box-form').not('.cloned').each(function(){
+        $('#widgets-right .fwdd-icon-box-form').each(function(){
             $(this).find('.chosen-select').chosen({
                 disable_search_threshold: 10,
                 width: "200px",
             });
             $(this).find('.fwdd-color-picker').wpColorPicker();
         });
+        $('#widgets-right .fwdd-button-color-picker').wpColorPicker();
     }
-    $('.fwdd-button-color-picker').wpColorPicker();
+
     initialize_plugins();
 
     $(document).on('chosen:showing_dropdown', '.chosen-select', function () {
@@ -21,7 +22,9 @@ jQuery(document).ready(function ($) {
             $(this).addClass('fa fa-' + $(this).text());
         });
     });
-
+    $(document).on('widget-updated widget-added', function(){
+        initialize_plugins();
+    });
     function box_form(newBox,number, instance){
         newBox.find('h3').html('Box #' + parseInt(instance + 1));
         newBox.find('.fwdd-input-field').each(function(){
@@ -38,11 +41,13 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var widgetForm = $(this).parent().parent();
         var boxes = widgetForm.find('.fwdd-icon-boxes');
-        var number = widgetForm.find('.widget_number').val();
+        var number = widgetForm.find('.multi_number').val();
+        if(number === ''){
+            number =  widgetForm.find('.widget_number').val();
+        }
         var boxForm = widgetForm.find('.fwdd-icon-box-form');
         var instance = boxForm.length;
         var newBox = formTemplate.clone(true);
-        newBox.removeClass('.cloned');
         boxes.append(box_form(newBox, number, instance));
         initialize_plugins();
     });
